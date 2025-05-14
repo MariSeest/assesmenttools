@@ -1,39 +1,32 @@
-import React, { useEffect, useState } from "react";
-import "../styles/Home.css";
-import { HomeIcon, UserIcon } from "@heroicons/react/24/outline";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { HomeIcon } from "@heroicons/react/24/outline";
+import "../styles/Home.css";
 
 export default function ViewClients() {
-    const [clients, setClients] = useState([]);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const storedClients = JSON.parse(localStorage.getItem("clients")) || [];
-        setClients(storedClients);
-    }, []);
-
-    const handleClientClick = (client) => {
-        // placeholder per eventuali dettagli o navigazione
-        alert(`Hai cliccato su: ${client.name}`);
-    };
+    const clients = [
+        { id: 1, name: "Cliente Esempio 1" },
+        { id: 2, name: "Cliente Esempio 2" },
+    ];
 
     return (
         <div className="app-container">
             <header className="toolbar">
                 <HomeIcon className="icon" onClick={() => navigate("/")} />
-                <UserIcon className="icon" />
             </header>
             <main className="main-content">
-                <h2 className="title">Clienti Salvati</h2>
+                <h2 className="form-title">Clienti Salvati</h2>
                 {clients.length === 0 ? (
-                    <p className="no-clients">Nessun cliente disponibile.</p>
+                    <p className="no-clients-text">Nessun cliente disponibile.</p>
                 ) : (
-                    <div className="client-list">
-                        {clients.map((client, index) => (
+                    <div className="clients-list">
+                        {clients.map((client) => (
                             <button
-                                key={index}
+                                key={client.id}
                                 className="main-button"
-                                onClick={() => handleClientClick(client)}
+                                onClick={() => navigate(`/client/${client.id}`)}
                             >
                                 {client.name}
                             </button>

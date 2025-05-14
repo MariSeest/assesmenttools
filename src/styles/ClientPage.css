@@ -1,0 +1,12 @@
+.client-title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.client-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}

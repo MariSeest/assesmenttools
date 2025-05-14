@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import CreateClient from "./pages/CreateClient";
 import ViewClients from "./pages/ViewClients";
+import ClientPage from "./pages/ClientPage";
+import QuestionPage from "./pages/QuestionPage";
 
 export default function App() {
     return (
@@ -12,6 +14,8 @@ export default function App() {
                     <Route path="/Home" element={<Home />} />
                 <Route path="/create-client" element={<CreateClient/>} />
                 <Route path="/view-clients" element={<ViewClients />} />
+                <Route path="/client/:clientId" element={<ClientPage />} />
+                <Route path="/client/:clientId/question/:id" element={<QuestionPage />} />
             </Routes>
         </Router>
     );

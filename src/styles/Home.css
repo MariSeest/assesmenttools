@@ -92,3 +92,16 @@ body {
     gap: 0.5rem;
     align-items: center;
 }
+.clients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.no-clients-text {
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+}
