@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HomeIcon } from "@heroicons/react/24/outline";
+import { HomeIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 import "../styles/CreateClients.css";
 
@@ -31,13 +31,26 @@ export default function CreateClient() {
         navigate("/view-clients", { state: { newClient: formData } });
     };
 
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
     return (
         <div className="app-container">
             <header className="toolbar">
                 <HomeIcon className="icon" onClick={() => navigate("/")} />
+                <UserIcon className="icon" onClick={() => navigate("/user-profile")} />
             </header>
+
             <main className="main-content">
+                <div style={{ alignSelf: "flex-start", marginBottom: "20px" }}>
+                    <button className="main-button" onClick={handleGoBack}>
+                        Indietro
+                    </button>
+                </div>
+
                 <h2 className="form-title">Crea Nuovo Cliente</h2>
+
                 <form className="form" onSubmit={handleSubmit}>
                     <label>
                         Nome Cliente:
@@ -90,7 +103,11 @@ export default function CreateClient() {
                         />
                     </label>
 
-                    <button type="submit" className="main-button">Salva Cliente</button>
+                    <div className="button-group-inside">
+                        <button type="submit" className="main-button">
+                            Salva Cliente
+                        </button>
+                    </div>
                 </form>
             </main>
         </div>

@@ -42,6 +42,10 @@
     width: 100%;
     max-width: 400px;
     gap: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 .form-input {
@@ -51,6 +55,7 @@
     border-radius: 8px;
     background-color: #1a1a2e;
     color: white;
+    font-size: 1rem;
 }
 
 .checkbox-group {
@@ -74,9 +79,19 @@
     color: #0a0a23;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    min-width: 120px;
 }
 
 .main-button:hover {
     transform: scale(1.05);
+    background-color: #e0e0e0;
+}
+
+.button-group-inside {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }

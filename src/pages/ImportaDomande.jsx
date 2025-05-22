@@ -33,13 +33,24 @@ export default function ImportaDomande({ onLoad }) {
         reader.readAsArrayBuffer(file);
     };
 
+    const handleGoBack = () => {
+        navigate(-1); // Torna alla pagina precedente
+    };
+
     return (
         <div className="importa-wrapper">
             {/* Toolbar in alto */}
             <header className="toolbar">
                 <HomeIcon className="icon" onClick={() => navigate("/")} />
-                <UserIcon className="icon" />
+                <UserIcon className="icon" onClick={() => navigate("/user-profile")} />
             </header>
+
+            {/* Bottone Indietro sotto la toolbar */}
+            <div style={{ alignSelf: "flex-start", margin: "1rem 2rem" }}>
+                <button className="main-button" onClick={handleGoBack}>
+                    Indietro
+                </button>
+            </div>
 
             {/* Contenuto centrato sotto la toolbar */}
             <div className="importa-content">

@@ -7,6 +7,7 @@ import ClientPage from "./pages/ClientPage";
 import QuestionPage from "./pages/QuestionPage";
 import ImportaDomande from "./pages/ImportaDomande";
 import UserProfile from "./pages/UserProfile";
+import DashboardResults from "./pages/DashboardResults";
 
 
 
@@ -23,6 +24,8 @@ export default function App() {
                 <Route path="/client/:clientId/question/:id" element={<QuestionPage />} />
                 <Route path="/importa-domande" element={<ImportaDomande />} />
                 <Route path="/user-profile" element={<UserProfile />} />
+                <Route path="/dashboard" element={<DashboardResults />} />
+
 
             </Routes>
         </Router>

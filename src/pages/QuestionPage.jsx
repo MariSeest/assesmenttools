@@ -131,8 +131,9 @@ export default function QuestionPage() {
                 <h2 style={{ color: "white" }}>
                     Cliente {clientId} – Domande {startIndex + 1}–{startIndex + domandePagina.length} / {useDomande.length}
                 </h2>
-                <UserIcon className="icon" />
+                <UserIcon className="icon" onClick={() => navigate("/user-profile")} />
             </header>
+
 
             <main className="main-content">
                 <div className="grid-container">

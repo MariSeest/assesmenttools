@@ -70,10 +70,13 @@ body {
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 250px; /* ✅ dimensione minima uguale per tutti */
+    width: 250px; /* ✅ Larghezza fissa per tutti i pulsanti */
+    max-width: 100%;
     text-align: center;
     display: inline-block;
+    box-sizing: border-box;
 }
+
 
 .main-button:hover {
     background-color: white;
@@ -207,4 +210,12 @@ textarea.form-input {
     text-align: center;
     margin-bottom: 0.5rem;
 }
+.button-group,
+.button-group-inside {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 
