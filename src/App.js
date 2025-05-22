@@ -5,6 +5,11 @@ import CreateClient from "./pages/CreateClient";
 import ViewClients from "./pages/ViewClients";
 import ClientPage from "./pages/ClientPage";
 import QuestionPage from "./pages/QuestionPage";
+import ImportaDomande from "./pages/ImportaDomande";
+import UserProfile from "./pages/UserProfile";
+
+
+
 
 export default function App() {
     return (
@@ -16,6 +21,9 @@ export default function App() {
                 <Route path="/view-clients" element={<ViewClients />} />
                 <Route path="/client/:clientId" element={<ClientPage />} />
                 <Route path="/client/:clientId/question/:id" element={<QuestionPage />} />
+                <Route path="/importa-domande" element={<ImportaDomande />} />
+                <Route path="/user-profile" element={<UserProfile />} />
+
             </Routes>
         </Router>
     );

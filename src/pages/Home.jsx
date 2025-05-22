@@ -10,7 +10,7 @@ export default function Home() {
         <div className="app-container">
             <header className="toolbar">
                 <HomeIcon className="icon" />
-                <UserIcon className="icon" />
+                <UserIcon className="icon" onClick={() => navigate("/user-profile")} />
             </header>
             <main className="main-content">
                 <button className="main-button" onClick={() => navigate("/create-client")}>
@@ -18,6 +18,9 @@ export default function Home() {
                 </button>
                 <button className="main-button" onClick={() => navigate("/view-clients")}>
                     Visualizza Clienti
+                </button>
+                <button className="main-button" onClick={() => navigate("/importa-domande")}>
+                    Importa Domande
                 </button>
             </main>
         </div>

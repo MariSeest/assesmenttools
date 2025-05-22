@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { HomeIcon, UserIcon } from "@heroicons/react/24/outline";
 import "../styles/Home.css";
 
-const domande = [
+const domandeDefault = [
     {
         ID: 1,
         Domande: "Esiste un elenco dei sistemi informativi e di rete rilevanti?",
@@ -65,84 +65,128 @@ const domande = [
 export default function QuestionPage() {
     const { clientId, id } = useParams();
     const navigate = useNavigate();
-    const domandaID = parseInt(id, 10);
-    const domanda = domande.find(d => d.ID === domandaID);
 
-    const [risposta, setRisposta] = useState("");
-    const [note, setNote] = useState("");
-    const [responsabile, setResponsabile] = useState("");
-    const [fonte, setFonte] = useState("");
+    const useDomande = domandeDefault;
+
+    const currentIndex = parseInt(id, 10) - 1;
+    const currentPage = Math.floor(currentIndex / 4);
+    const startIndex = currentPage * 4;
+    const domandePagina = useDomande.slice(startIndex, startIndex + 4);
+
+    const [risposte, setRisposte] = useState(
+        domandePagina.map(() => ({
+            risposta: "",
+            note: "",
+            responsabile: "",
+            fonte: "",
+        }))
+    );
+
+    const handleChange = (index, campo, valore) => {
+        const nuoveRisposte = [...risposte];
+        nuoveRisposte[index][campo] = valore;
+        setRisposte(nuoveRisposte);
+    };
 
     const handleSubmit = () => {
-        const peso = risposta === "Implementato" || risposta === "Non implementato"
-            ? 25 : risposta === "Parzialmente implementato"
-                ? 12.5 : 0;
+        const risultati = domandePagina.map((domanda, index) => {
+            const rispostaUtente = risposte[index].risposta;
+            const peso = rispostaUtente === "Implementato" || rispostaUtente === "Non implementato"
+                ? 25 : rispostaUtente === "Parzialmente implementato"
+                    ? 12.5 : 0;
 
-        const risultato = {
-            clientId,
-            domandaID,
-            risposta,
-            peso,
-            note,
-            responsabile,
-            fonte,
-        };
+            return {
+                clientId,
+                domandaID: domanda.ID,
+                risposta: rispostaUtente,
+                peso,
+                note: risposte[index].note,
+                responsabile: risposte[index].responsabile,
+                fonte: risposte[index].fonte,
+            };
+        });
 
-        console.log("Risposta salvata:", risultato);
+        console.log("Risposte salvate:", risultati);
 
-        if (domandaID < domande.length) {
-            navigate(`/client/${clientId}/question/${domandaID + 1}`);
+        const prossima = startIndex + 4;
+        if (prossima < useDomande.length) {
+            navigate(`/client/${clientId}/question/${prossima + 1}`);
         } else {
             navigate(`/client/${clientId}`);
         }
     };
 
-    if (!domanda) return <p style={{ color: "white" }}>Domanda non trovata.</p>;
+    const handleBack = () => {
+        navigate(`/client/${clientId}`);
+    };
+
+    const handleGoToImport = () => {
+        navigate("/importa-domande");
+    };
 
     return (
         <div className="app-container">
             <header className="toolbar">
                 <HomeIcon className="icon" onClick={() => navigate("/")} />
                 <h2 style={{ color: "white" }}>
-                    Cliente {clientId} – Domanda {domandaID} / {domande.length}
+                    Cliente {clientId} – Domande {startIndex + 1}–{startIndex + domandePagina.length} / {useDomande.length}
                 </h2>
                 <UserIcon className="icon" />
             </header>
+
             <main className="main-content">
-                <div className="form">
-                    <p className="form-title">{domanda.Domande}</p>
-                    <p><strong>Codice ACN:</strong> {domanda["CODICE ACN"]}</p>
-                    <p><strong>Ambiti e politiche:</strong> {domanda["Abiti e politiche"]}</p>
-                    <p><strong>Descrizione:</strong> {domanda["Descrizione"]}</p>
+                <div className="grid-container">
+                    {domandePagina.map((domanda, index) => (
+                        <div className="box" key={domanda.ID}>
+                            <p className="form-title">{domanda.Domande}</p>
+                            <p><strong>Codice ACN:</strong> {domanda["CODICE ACN"]}</p>
+                            <p><strong>Ambiti e politiche:</strong> {domanda["Abiti e politiche"]}</p>
+                            <p><strong>Descrizione:</strong> {domanda["Descrizione"]}</p>
 
-                    <select className="form-input" value={risposta} onChange={(e) => setRisposta(e.target.value)}>
-                        <option value="">Seleziona una risposta</option>
-                        <option value="Implementato">Implementato</option>
-                        <option value="Parzialmente implementato">Parzialmente implementato</option>
-                        <option value="Non implementato">Non implementato</option>
-                        <option value="Non applicabile">Non applicabile</option>
-                    </select>
+                            <select
+                                className="form-input"
+                                value={risposte[index].risposta}
+                                onChange={(e) => handleChange(index, "risposta", e.target.value)}
+                            >
+                                <option value="">Seleziona una risposta</option>
+                                <option value="Implementato">Implementato</option>
+                                <option value="Parzialmente implementato">Parzialmente implementato</option>
+                                <option value="Non implementato">Non implementato</option>
+                                <option value="Non applicabile">Non applicabile</option>
+                            </select>
 
-                    <textarea
-                        className="form-input"
-                        placeholder="Note"
-                        value={note}
-                        onChange={(e) => setNote(e.target.value)}
-                    />
+                            <textarea
+                                className="form-input"
+                                placeholder="Note"
+                                value={risposte[index].note}
+                                onChange={(e) => handleChange(index, "note", e.target.value)}
+                            />
 
-                    <input
-                        className="form-input"
-                        placeholder="Responsabile"
-                        value={responsabile}
-                        onChange={(e) => setResponsabile(e.target.value)}
-                    />
+                            <input
+                                className="form-input"
+                                placeholder="Responsabile"
+                                value={risposte[index].responsabile}
+                                onChange={(e) => handleChange(index, "responsabile", e.target.value)}
+                            />
 
-                    <input
-                        className="form-input"
-                        placeholder="Chi fornisce l’informazione"
-                        value={fonte}
-                        onChange={(e) => setFonte(e.target.value)}
-                    />
+                            <input
+                                className="form-input"
+                                placeholder="Chi fornisce l’informazione"
+                                value={risposte[index].fonte}
+                                onChange={(e) => handleChange(index, "fonte", e.target.value)}
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                <div className="button-group">
+                    <button className="main-button" onClick={handleBack}>
+                        Indietro
+                    </button>
+
+                    <button className="main-button" onClick={handleGoToImport}>
+                        Importa Domande
+                    </button>
 
                     <button className="main-button" onClick={handleSubmit}>
                         Salva e Continua

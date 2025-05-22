@@ -1,0 +1,91 @@
+.profile-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0a0f2c;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, #000000, #444444);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.icon {
+    height: 2rem;
+    width: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.profile-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-box {
+    background-color: rgba(255, 255, 255, 0.1); /* più chiaro */
+    padding: 30px;
+    border-radius: 16px;
+    color: white;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.top-right-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.small-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.small-button:hover {
+    background-color: white;
+    color: #0a0f2c;
+}
+
+.logout {
+    border-color: #e74c3c;
+}
+
+.logout:hover {
+    background-color: #e74c3c;
+    color: white;
+}

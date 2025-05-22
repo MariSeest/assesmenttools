@@ -1,0 +1,72 @@
+.importa-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Toolbar sopra, contenuto sotto */
+    background-color: #0a0f2c;
+}
+
+/* Contenuto centrato sotto la toolbar */
+.importa-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.importa-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.importa-box h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.importa-input {
+    background-color: white;
+    color: #0a0f2c;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    max-width: 300px;
+    margin: 0 auto 20px auto;
+    display: block;
+    text-align: center;
+}
+
+
+.importa-success {
+    margin-top: 15px;
+    color: lightgreen;
+    font-weight: bold;
+}
+
+/* Se usi anche la toolbar globale, assicurati che abbia queste classi: */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, #000000, #444444);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.icon {
+    height: 2rem;
+    width: 2rem;
+    color: white;
+    cursor: pointer;
+}
