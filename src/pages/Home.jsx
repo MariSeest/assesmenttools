@@ -22,10 +22,6 @@ export default function Home() {
                 <button className="main-button" onClick={() => navigate("/importa-domande")}>
                     Importa Domande
                 </button>
-                {/* ✅ Bottone temporaneo per accedere alla dashboard */}
-                <button className="main-button" onClick={() => navigate("/dashboard")}>
-                    Vai alla Dashboard
-                </button>
             </main>
         </div>
     );

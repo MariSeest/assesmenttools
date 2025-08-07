@@ -8,6 +8,7 @@ import QuestionPage from "./pages/QuestionPage";
 import ImportaDomande from "./pages/ImportaDomande";
 import UserProfile from "./pages/UserProfile";
 import DashboardResults from "./pages/DashboardResults";
+import ReportGenerator from "./pages/ReportGenerator";
 
 
 
@@ -25,8 +26,7 @@ export default function App() {
                 <Route path="/importa-domande" element={<ImportaDomande />} />
                 <Route path="/user-profile" element={<UserProfile />} />
                 <Route path="/dashboard" element={<DashboardResults />} />
-
-
+                <Route path="/report-generator"element={<ReportGenerator/>}/>
             </Routes>
         </Router>
     );

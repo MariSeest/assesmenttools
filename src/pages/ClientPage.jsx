@@ -10,6 +10,9 @@ export default function ClientPage() {
     const handleGoBack = () => {
         navigate(-1); // torna alla pagina precedente
     };
+    const handleDirectDashboard =()=> {
+        navigate ("/dashboard"); //ridirige alla dashboard
+    }
 
     return (
         <div className="app-container">
@@ -35,6 +38,13 @@ export default function ClientPage() {
                     </button>
                     <button className="main-button">27001</button>
                     <button className="main-button">27001 TO NIS</button>
+                    <button className= "main-button" onClick={handleDirectDashboard}>
+                        Dashboard
+                    </button>
+                    <button className="main-button" onClick={() => navigate("/report-generator")}>
+                        Genera Report NIS2
+                    </button>
+
                 </div>
             </main>
         </div>
