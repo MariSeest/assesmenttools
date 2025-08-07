@@ -1,0 +1,29 @@
+.report-generator-container {
+    display: flex;
+    justify-content: center;     /* centra orizzontalmente */
+    align-items: center;         /* centra verticalmente */
+    height: 100vh;               /* prende tutta l'altezza della viewport */
+    background-color: #0a0f2c;   /* colore coerente con il resto dell'app */
+}
+
+/* Riutilizza lo stile dei bottoni già presenti */
+.generate-report-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 250px;
+    max-width: 100%;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.generate-report-button:hover {
+    background-color: white;
+    color: #0a0f2c;
+}

@@ -1,13 +1,17 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import "../styles/ReportGenerator.css";
+
+pdfMake.vfs = pdfFonts.vfs;
+
+
 
 export default function ReportGenerator() {
     const generateReport = () => {
         const docDefinition = {
             content: [
                 { text: 'Report Conformità alla NIS2', style: 'header' },
-                { text: 'Cliente: GB Ricambi S.p.A.', style: 'subheader' },
+                { text: 'Cliente: PippoPippo', style: 'subheader' },
                 {
                     text: 'Sommario',
                     style: 'sectionTitle'
@@ -32,7 +36,7 @@ export default function ReportGenerator() {
                         ]
                     }
                 }
-                // …continua per le altre sezioni
+                // continuare qui per le altre sezioni--------------
             ],
             styles: {
                 header: { fontSize: 18, bold: true, margin: [0, 0, 0, 10] },
@@ -45,8 +49,10 @@ export default function ReportGenerator() {
     };
 
     return (
-        <button className="main-button" onClick={generateReport}>
-            Genera Report NIS2
-        </button>
+        <div className="main-content">
+            <button className="main-button" onClick={generateReport}>
+                Genera Report NIS2
+            </button>
+        </div>
     );
 }
