@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 import Toolbar from "./Toolbar";
+import "../styles/QuestionPage.css";
 
 const domandeDefault = [
     {
@@ -131,7 +132,7 @@ export default function QuestionPage() {
         <div className="app-container">
             <Toolbar title={`Cliente ${clientId} – Domande ${startIndex + 1}–${startIndex + domandePagina.length} / ${useDomande.length}`} />
 
-            <main className="main-content">
+            <main className="main-content question-page">
                 <div className="grid-container">
                     {domandePagina.map((domanda, index) => (
                         <div className="box" key={domanda.ID}>
