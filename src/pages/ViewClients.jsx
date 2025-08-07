@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 import "../styles/Toolbar.css";
-import "../styles/GoBackButton.css"; // ✅ importa il CSS giusto
+import "../styles/GoBackButton.css";
 import Toolbar from "./Toolbar";
 
 export default function ViewClients() {
