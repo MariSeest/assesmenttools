@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { HomeIcon, UserIcon } from "@heroicons/react/24/outline";
 import "../styles/Home.css";
-import Toolbar from "../styles/Toolbar.css";
+import Toolbar from "./Toolbar";
 
 const domandeDefault = [
     {
@@ -92,9 +91,12 @@ export default function QuestionPage() {
     const handleSubmit = () => {
         const risultati = domandePagina.map((domanda, index) => {
             const rispostaUtente = risposte[index].risposta;
-            const peso = rispostaUtente === "Implementato" || rispostaUtente === "Non implementato"
-                ? 25 : rispostaUtente === "Parzialmente implementato"
-                    ? 12.5 : 0;
+            const peso =
+                rispostaUtente === "Implementato" || rispostaUtente === "Non implementato"
+                    ? 25
+                    : rispostaUtente === "Parzialmente implementato"
+                        ? 12.5
+                        : 0;
 
             return {
                 clientId,
@@ -128,7 +130,6 @@ export default function QuestionPage() {
     return (
         <div className="app-container">
             <Toolbar title={`Cliente ${clientId} – Domande ${startIndex + 1}–${startIndex + domandePagina.length} / ${useDomande.length}`} />
-
 
             <main className="main-content">
                 <div className="grid-container">
@@ -179,11 +180,9 @@ export default function QuestionPage() {
                     <button className="main-button" onClick={handleBack}>
                         Indietro
                     </button>
-
                     <button className="main-button" onClick={handleGoToImport}>
                         Importa Domande
                     </button>
-
                     <button className="main-button" onClick={handleSubmit}>
                         Salva e Continua
                     </button>

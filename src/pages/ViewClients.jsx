@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 import "../styles/Toolbar.css";
+import "../styles/GoBackButton.css"; // ✅ importa il CSS giusto
 import Toolbar from "./Toolbar";
 
 export default function ViewClients() {
@@ -20,7 +21,8 @@ export default function ViewClients() {
         <div className="app-container">
             <Toolbar />
 
-            <div style={{ alignSelf: "flex-start", margin: "1rem 2rem" }}>
+            {/* Bottone Indietro spostato di 4cm */}
+            <div className="go-back-container">
                 <button className="main-button" onClick={handleGoBack}>
                     Indietro
                 </button>
