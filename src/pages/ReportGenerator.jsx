@@ -1,14 +1,12 @@
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import React from "react";
 import "../styles/ReportGenerator.css";
 import "../styles/Home.css";
+import "../styles/GoBackButton.css";
 import Toolbar from "../pages/Toolbar";
-import React from "react";
-
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
 pdfMake.vfs = pdfFonts.vfs;
-
-
 
 export default function ReportGenerator() {
     const generateReport = () => {
@@ -16,10 +14,7 @@ export default function ReportGenerator() {
             content: [
                 { text: 'Report Conformità alla NIS2', style: 'header' },
                 { text: 'Cliente: PippoPippo', style: 'subheader' },
-                {
-                    text: 'Sommario',
-                    style: 'sectionTitle'
-                },
+                { text: 'Sommario', style: 'sectionTitle' },
                 {
                     ul: [
                         'Govern – Stato: Avanzato',
@@ -40,7 +35,6 @@ export default function ReportGenerator() {
                         ]
                     }
                 }
-                // continuare qui per le altre sezioni--------------
             ],
             styles: {
                 header: { fontSize: 18, bold: true, margin: [0, 0, 0, 10] },
@@ -52,15 +46,25 @@ export default function ReportGenerator() {
         pdfMake.createPdf(docDefinition).download('reportNIS2.pdf');
     };
 
+    const handleGoBack = () => {
+        window.history.back();
+    };
+
     return (
         <div className="app-container">
             <Toolbar />
+
+            <div className="go-back-container">
+                <button className="main-button" onClick={handleGoBack}>
+                    Indietro
+                </button>
+            </div>
+
             <main className="main-content">
                 <button className="main-button" onClick={generateReport}>
                     Genera Report NIS2
                 </button>
             </main>
         </div>
-
     );
 }

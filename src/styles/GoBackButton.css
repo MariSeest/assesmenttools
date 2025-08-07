@@ -1,5 +1,6 @@
 .go-back-container {
-    margin-top: 4cm;       /* distanza verticale dalla toolbar */
-    margin-left: 2rem;     /* margine a sinistra */
+    margin-top: 6cm;
+    margin-left: 2rem;
     align-self: flex-start;
 }
+
