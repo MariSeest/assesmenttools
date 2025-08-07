@@ -24,7 +24,7 @@ Il file Excel caricato **deve contenere una struttura tabellare** con intestazio
 - `ID`
 - `Domande`
 - `CODICE ACN`
-- `Abiti e politiche`
+- `Ambiti e politiche`
 - `Descrizione`
 
 > L'utente seleziona **il tipo di assessment** (es. NIS2) e le domande vengono mostrate nella pagina `QuestionUploaded.jsx`.
