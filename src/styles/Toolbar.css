@@ -1,0 +1,54 @@
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem; /* Questo è fondamentale */
+    background: linear-gradient(to right, #000000, #444444);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.toolbar-icon-left,
+.toolbar-icon-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.icon {
+    height: 2rem;
+    width: 2rem;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem; /* 🧠 aumenta area cliccabile */
+    box-sizing: content-box; /* assicura che padding non faccia overflow */
+}
+.icon:last-child {
+    margin-right: 70px; /* o 16px se vuoi più spazio */
+}
+
+
+/* Responsive per mobile */
+@media screen and (max-width: 600px) {
+    .toolbar {
+        height: 50px;
+        padding: 0 1rem;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .icon {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}

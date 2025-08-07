@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { HomeIcon, UserIcon } from "@heroicons/react/24/outline";
 import "../styles/Home.css";
+import Toolbar from "../styles/Toolbar.css";
 
 const domandeDefault = [
     {
@@ -126,13 +127,7 @@ export default function QuestionPage() {
 
     return (
         <div className="app-container">
-            <header className="toolbar">
-                <HomeIcon className="icon" onClick={() => navigate("/")} />
-                <h2 style={{ color: "white" }}>
-                    Cliente {clientId} – Domande {startIndex + 1}–{startIndex + domandePagina.length} / {useDomande.length}
-                </h2>
-                <UserIcon className="icon" onClick={() => navigate("/user-profile")} />
-            </header>
+            <Toolbar title={`Cliente ${clientId} – Domande ${startIndex + 1}–${startIndex + domandePagina.length} / ${useDomande.length}`} />
 
 
             <main className="main-content">

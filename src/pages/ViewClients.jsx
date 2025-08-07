@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { HomeIcon, UserIcon } from "@heroicons/react/24/outline";
 import "../styles/Home.css";
+import "../styles/Toolbar.css";
+import Toolbar from "./Toolbar";
 
 export default function ViewClients() {
     const navigate = useNavigate();
@@ -17,12 +18,8 @@ export default function ViewClients() {
 
     return (
         <div className="app-container">
-            <header className="toolbar">
-                <HomeIcon className="icon" onClick={() => navigate("/")} />
-                <UserIcon className="icon" onClick={() => navigate("/user-profile")} />
-            </header>
+            <Toolbar /> {/* ✅ Componente inserito */}
 
-            {/* Bottone Indietro sotto la toolbar */}
             <div style={{ alignSelf: "flex-start", margin: "1rem 2rem" }}>
                 <button className="main-button" onClick={handleGoBack}>
                     Indietro

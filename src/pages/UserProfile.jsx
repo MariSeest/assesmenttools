@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/UserProfile.css";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import Toolbar from "../styles/Toolbar.css";
+
 
 export default function UserProfile() {
     const navigate = useNavigate();
@@ -23,10 +25,7 @@ export default function UserProfile() {
 
     return (
         <div className="profile-container">
-            <header className="toolbar">
-                <HomeIcon className="icon" onClick={() => navigate("/")} />
-                <h2 className="profile-title">Profilo Utente</h2>
-            </header>
+            <Toolbar />
 
             <main className="profile-main">
                 <div className="profile-box">

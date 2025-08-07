@@ -1,6 +1,10 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import "../styles/ReportGenerator.css";
+import "../styles/Home.css";
+import Toolbar from "../pages/Toolbar";
+import React from "react";
+
 
 pdfMake.vfs = pdfFonts.vfs;
 
@@ -49,10 +53,14 @@ export default function ReportGenerator() {
     };
 
     return (
-        <div className="main-content">
-            <button className="main-button" onClick={generateReport}>
-                Genera Report NIS2
-            </button>
+        <div className="app-container">
+            <Toolbar />
+            <main className="main-content">
+                <button className="main-button" onClick={generateReport}>
+                    Genera Report NIS2
+                </button>
+            </main>
         </div>
+
     );
 }
