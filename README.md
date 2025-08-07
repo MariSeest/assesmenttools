@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# 🛡️ Assessment Tool – NIS2 / ISO-to-NIS2 / ISO/IEC 27001
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un'applicazione React completa per la gestione di questionari di conformità relativi a diversi framework di sicurezza: **NIS2**, **ISO-to-NIS2** e **ISO/IEC 27001**.
 
-## Available Scripts
+## 🚀 Funzionalità principali
 
-In the project directory, you can run:
+- ✅ **Importazione domande da file Excel (.xlsx)**
+- 📋 **Compilazione guidata dei questionari**
+- 📈 **Dashboard riepilogativa con grafico percentuale delle criticità**
+- 🧾 **Generazione di report PDF in formato standard**
+- 👤 **Gestione profilo utente (nome, email, ruolo)**
+- 🔙 **Navigazione tra domande e salvataggio risposte**
+- 🧩 **Struttura modulare per diversi assessment**
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📥 Importazione domande
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Il file Excel caricato **deve contenere una struttura tabellare** con intestazioni coerenti:
 
-### `npm run build`
+- `ID`
+- `Domande`
+- `CODICE ACN`
+- `Abiti e politiche`
+- `Descrizione`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> L'utente seleziona **il tipo di assessment** (es. NIS2) e le domande vengono mostrate nella pagina `QuestionUploaded.jsx`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧠 Logica delle risposte
 
-### `npm run eject`
+Ogni domanda accetta una delle seguenti risposte:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `Implementato` → 25 punti
+- `Parzialmente implementato` → 12.5 punti
+- `Non implementato` → 0 punti
+- `Non applicabile` → 0 punti (non influisce sulle criticità)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Le risposte sono calcolate per determinare il livello di **criticità complessiva** e generare grafici e report PDF.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📊 Dashboard
 
-## Learn More
+La pagina `DashboardResults.jsx` mostra:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Conteggio di tutte le risposte per categoria
+- Percentuale di criticità
+- Grafico a torta (`Chart.js`)
+- Pulsante per scaricare il **PDF riepilogativo**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🧾 Report PDF
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+La pagina `ReportGenerator.jsx` genera un PDF utilizzando `pdfmake`, includendo:
 
-### Analyzing the Bundle Size
+- Titolo e nome cliente
+- Stato di ciascuna area (Govern, Identify, Protect…)
+- Tabella con osservazioni e punti da attenzionare
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🧪 Requisiti
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- React 18+
+- React Router DOM
+- Heroicons
+- Chart.js
+- XLSX
+- jsPDF / pdfmake
 
-### Advanced Configuration
+Installa tutte le dipendenze:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🙋‍♀️ Autrice
+👩‍💻 Sviluppato da Luisa Mele, Cybersecurity and Cloud Engineer
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
