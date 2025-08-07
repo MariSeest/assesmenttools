@@ -9,6 +9,7 @@ import ImportaDomande from "./pages/ImportaDomande";
 import UserProfile from "./pages/UserProfile";
 import DashboardResults from "./pages/DashboardResults";
 import ReportGenerator from "./pages/ReportGenerator";
+import QuestionUploaded from "./pages/QuestionUploaded";
 
 
 
@@ -27,6 +28,7 @@ export default function App() {
                 <Route path="/user-profile" element={<UserProfile />} />
                 <Route path="/dashboard" element={<DashboardResults />} />
                 <Route path="/report-generator"element={<ReportGenerator/>}/>
+                <Route path="/question-uploaded" element={<QuestionUploaded />} />
             </Routes>
         </Router>
     );

@@ -1,72 +1,67 @@
+/* Container centrale */
 .importa-wrapper {
-    height: 100vh;
     display: flex;
-    flex-direction: column; /* Toolbar sopra, contenuto sotto */
-    background-color: #0a0f2c;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px; /* spazio sotto la toolbar */
 }
 
-/* Contenuto centrato sotto la toolbar */
+/* Sezione contenuto */
 .importa-content {
-    flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
+/* Box centrale */
 .importa-box {
     background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid #444;
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
+    padding: 2rem;
+    border-radius: 16px;
     color: white;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-.importa-box h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-}
-
+/* Input file */
 .importa-input {
-    background-color: white;
-    color: #0a0f2c;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 0.5rem;
     border-radius: 8px;
     border: none;
-    cursor: pointer;
-    max-width: 300px;
-    margin: 0 auto 20px auto;
-    display: block;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+}
+
+/* Dropdown per tipo assessment */
+.importa-select {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+}
+
+/* Messaggio di successo */
+.importa-success {
+    color: #4caf50;
+    font-weight: bold;
     text-align: center;
 }
 
+/* Responsive layout */
+@media (max-width: 600px) {
+    .importa-box {
+        padding: 1rem;
+    }
 
-.importa-success {
-    margin-top: 15px;
-    color: lightgreen;
-    font-weight: bold;
-}
-
-/* Se usi anche la toolbar globale, assicurati che abbia queste classi: */
-.toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: linear-gradient(to right, #000000, #444444);
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.icon {
-    height: 2rem;
-    width: 2rem;
-    color: white;
-    cursor: pointer;
+    .importa-wrapper {
+        padding-top: 70px;
+    }
 }
