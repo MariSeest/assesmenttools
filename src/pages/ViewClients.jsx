@@ -18,7 +18,7 @@ export default function ViewClients() {
 
     return (
         <div className="app-container">
-            <Toolbar /> {/* ✅ Componente inserito */}
+            <Toolbar />
 
             <div style={{ alignSelf: "flex-start", margin: "1rem 2rem" }}>
                 <button className="main-button" onClick={handleGoBack}>
