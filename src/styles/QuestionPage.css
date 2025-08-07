@@ -1,14 +1,15 @@
 /* QuestionPage.css */
 
-.question-main {
-    flex-grow: 1;
+/* QuestionPage.css */
+
+.question-page {
+    padding-top: 100px; /* ✅ Spazio per evitare sovrapposizione con la toolbar */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-    margin-top: 2cm; /* ✅ Sposta i box in basso */
 }
+
 
 .question-grid {
     display: grid;
